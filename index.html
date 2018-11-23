@@ -2,6 +2,9 @@
 <html>
   <head>
     <title>sm-element-demo</title>
+    <!-- necessary evils packages that don't 100% work with es6 modules (dependencies are not es6 modules usually)-->
+    <script src="/node_modules/universal-router/universal-router.min.js"></script>
+    <script src="/node_modules/history/umd/history.min.js"></script>
   </head>
   <style>
   html {
@@ -9,8 +12,7 @@
   }
   </style>
   <body>
-    <h3>Traffic light example</h3>
-    <script src="index.js" type="module"></script>
-    <traffic-light yellowdelay="4000"></traffic-light>
+    <script src="/src/blog-app/blog-app.js" type="module"></script>
+    <blog-app></blog-app>
   </body>
 </html>

@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "sm-element": "0.0.7"
+    "history": "^4.7.2",
+    "sm-element": "0.0.7",
+    "universal-router": "^7.0.0"
   }
 }

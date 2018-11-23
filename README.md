@@ -5,6 +5,8 @@ An example blog application using:
 - [universal-router](https://github.com/kriasoft/universal-router) router
 - [history](https://github.com/ReactTraining/history) history management
 
+[demo](https://sm-element-demo.firebaseapp.com/)
+
 #### Run it
 1. install [Polymer CLI](https://github.com/Polymer/polymer-cli)
 2. Fork it

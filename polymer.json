@@ -1,0 +1,6 @@
+{
+  "builds": [{
+    "preset":"es5-bundled",
+    "addServiceWorker":false
+  }]
+}

@@ -4,6 +4,7 @@ import CreatePost from '../create-post/create-post.js';
 
 import routes from '../routing/routes.js';
 
+/** @type Array<import("sm-element/sm-element").Transition> */
 const universalTransitions = [
   {
     event: 'go_home',
@@ -20,6 +21,7 @@ const universalTransitions = [
   {
     event: 'create_post',
     target: 'create',
+    /** @this {BlogApp} */
     condition() {
       return this.user.loggedIn === true;
     }
@@ -27,6 +29,7 @@ const universalTransitions = [
   {
     event: 'create_post',
     target: 'home',
+    /** @this {BlogApp} */
     condition() {
       return this.user.loggedIn !== true;
     },
@@ -37,11 +40,13 @@ const universalTransitions = [
 ]
 
 class BlogApp extends SMElement {
+
+  /** @return {!import("sm-element/sm-element").Machine} */
   static get machine() {
     return {
       initial:'home',
       states: {
-        home:{
+        home: {
           name:'home',
           transitions: universalTransitions.concat([
             {
@@ -244,5 +249,6 @@ class BlogApp extends SMElement {
     this.history.push(`/posts/${e.detail.postId}`);
   }
 }
+
 
 customElements.define('blog-app', BlogApp);

@@ -1,59 +1,10 @@
 import SMElement, {html} from 'sm-element/sm-element';
+import machine from './machine/machine';
 
 export default class CreatePost extends SMElement {
+
   static get machine() {
-    return {
-      initial:'form',
-      states: {
-        form: {
-          name: 'form',
-          transitions: [
-            {
-              event: 'creating_post',
-              target: 'loading',
-            }
-          ]
-        },
-        loading: {
-          name: 'loading',
-          transitions: [
-            {
-              event:'create_success',
-              target: 'success',
-              effect({id}) {
-                return {postId: id};
-              }
-            },
-            {
-              event:'create_error',
-              target: 'error',
-            }
-          ],
-          render() {
-            return html`<div>loading...</div>`;
-          }
-        },
-        success: {
-          name: 'success',
-          transitions: [],
-          render({postId}) {
-            return html`<div><a href="/posts/${postId}" @click="${e => this.onClickPost(e)}">View post</a></div>`;
-          }
-        },
-        error: {
-          name: 'error',
-          transitions: [
-            {
-              event: 'creating_post',
-              target: 'loading',
-            }
-          ],
-          render() {
-            return html`<div>there was an error creating your post.</div>`
-          }
-        }
-      }
-    }
+    return machine;
   }
 
   static get properties() {

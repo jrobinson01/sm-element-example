@@ -1,6 +1,7 @@
 import SMElement, {html} from 'sm-element/sm-element';
 import machine from './machine/machine';
 import routes from '../routing/routes.js';
+import style from './style.js';
 
 class BlogApp extends SMElement {
 
@@ -59,7 +60,8 @@ class BlogApp extends SMElement {
 
   render({user, posts}) {
     return html`
-      <h3><a href="/" @click="${e => this.clickLink(e)}">A Blog!</a></h3>
+      ${style}
+      <h1><a href="/" @click="${e => this.clickLink(e)}">A Blog!</a></h1>
       ${this.currentStateRender(this.data)}
     `;
   }
@@ -95,7 +97,6 @@ class BlogApp extends SMElement {
    * @param {CustomEvent} e
    */
   onCreatePost(e) {
-    console.log('onCreatePost!', e);
     const newPost = Object.assign({}, e.detail);
     e.detail.responder = new Promise((resolve, reject) => {
       setTimeout(() => {

@@ -1,5 +1,6 @@
 import SMElement, {html} from 'sm-element/sm-element';
 import machine from './machine/machine';
+import style from './style.js';
 
 export default class CreatePost extends SMElement {
 
@@ -25,11 +26,16 @@ export default class CreatePost extends SMElement {
 
   render({title, content}) {
     return html`
+      ${style}
       <form @submit="${e => this.onSubmit(e)}">
-        <label for="title">Title</label>
-        <input name="title" type="text" .value="${title}" @input="${e => this.title = e.target.value}"></input>
-        <label for="content">Content</label>
-        <input name="content" type="text" .value="${content}" @input="${e => this.content = e.target.value}"></input>
+        <div>
+          <label for="title">Title</label>
+          <input name="title" type="text" .value="${title}" @input="${e => this.title = e.target.value}"></input>
+        </div>
+        <div>
+          <label for="content">Content</label>
+          <input name="content" type="text" .value="${content}" @input="${e => this.content = e.target.value}"></input>
+        </div>
         <button type="submit">Create</button>
         ${this.currentStateRender(this.data)}
       </form>

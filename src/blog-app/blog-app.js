@@ -4,7 +4,6 @@ import CreatePost from '../create-post/create-post.js';
 
 import routes from '../routing/routes.js';
 
-/** @type Array<import("sm-element/sm-element").Transition> */
 const universalTransitions = [
   {
     event: 'go_home',
@@ -41,7 +40,6 @@ const universalTransitions = [
 
 class BlogApp extends SMElement {
 
-  /** @return {!import("sm-element/sm-element").Machine} */
   static get machine() {
     return {
       initial:'home',
@@ -53,7 +51,6 @@ class BlogApp extends SMElement {
               event: 'view_post',
               target: 'view',
               effect(detail) {
-                console.log('view_post event', detail);
                 return {selectedPostId: detail.postId};
               }
             },

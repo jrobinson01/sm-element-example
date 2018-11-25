@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy":"polymer build && cp ./build/es5-bundled/index.html ./public/index.html && firebase deploy"
+    "deploy": "polymer build && cp ./build/es5-bundled/index.html ./public/index.html && firebase deploy",
+    "dev" : "polymer serve -H 0.0.0.0"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "history": "^4.7.2",
-    "sm-element": "0.0.9",
+    "sm-element": "0.0.10",
     "universal-router": "^7.0.0"
   }
 }

@@ -1,80 +1,10 @@
 import SMElement, {html} from 'sm-element/sm-element';
+import machine from './machine/machine';
 
 export default class LoginForm extends SMElement {
+
   static get machine() {
-    return {
-      initial:'form',
-      states: {
-        form: {
-          name: 'form',
-          transitions: [
-            {
-              event: 'submit_form',
-              target: 'loading',
-              condition(detail) {
-                return (detail.username && detail.password);
-              }
-            }
-          ]
-        },
-        loading: {
-          name: 'loading',
-          onEntry() {
-            // fake network request
-            setTimeout(() => {
-              if (this.username === 'admin' && this.password === 'password') {
-                this.send('authenticated');
-              } else {
-                this.send('unauthenticated', {username:'', password:''});
-              }
-            }, 2000);
-          },
-          transitions: [
-            {
-              event: 'authenticated',
-              target: 'success',
-              effect(detail) {
-                return detail;
-              }
-            },
-            {
-              event: 'unauthenticated',
-              target: 'error',
-              effect(detail) {
-                return detail;
-              }
-            }
-          ],
-          render() {
-            return html`<div>loading...</div>`;
-          }
-        },
-        error: {
-          name: 'error',
-          transitions: [
-            {
-              event: 'try_again',
-              target: 'form'
-            }
-          ],
-          render() {
-            return html`<div>Sorry, username or password is incorrect.</div>`;
-          }
-        },
-        success: {
-          name: 'success',
-          onEntry() {
-            // let our parent know we're done
-            this.dispatchEvent(new CustomEvent('logged-in', {
-              detail: {
-                username: this.username
-              }
-            }));
-          },
-          transitions: []
-        }
-      }
-    };
+    return machine;
   }
 
   static get properties() {
@@ -102,7 +32,7 @@ export default class LoginForm extends SMElement {
         <button type="submit" .disabled="${!enabled}">Login</button>
       </form>
       ${this.currentStateRender(this.data)}
-    `
+    `;
   }
 
   onSubmit(e) {

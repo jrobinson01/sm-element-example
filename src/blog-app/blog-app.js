@@ -29,9 +29,15 @@ class BlogApp extends SMElement {
     }
   }
 
+  constructor() {
+    super();
+    this.router;
+    this.history;
+  }
+
   connectedCallback() {
     super.connectedCallback();
-    // @ts-ignore
+    // @ts-ignore global
     this.router = new UniversalRouter(routes);
     // handle changes to the url directly
     this.router.resolve({pathname: location.pathname})
@@ -42,7 +48,7 @@ class BlogApp extends SMElement {
       console.error('error resolving (direct url)', location.pathname);
       this.send('page_not_found');
     });
-    // @ts-ignore
+    // @ts-ignore global
     this.history = History.createBrowserHistory();
     // listen for history changes
     this.history.listen(event => {

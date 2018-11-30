@@ -10,6 +10,12 @@ const state = {
     {
       event:'logged_in',
       target: 'home',
+      condition(detail) {
+        // the login component dispatches an event based on setTimeout,
+        // so can dispatch it after it's been removed from the dom.
+        // ignore events that come from disconnected elements.
+        return detail.event.currentTarget.isConnected;
+      },
       effect(detail) {
         return detail;
       },

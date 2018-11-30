@@ -94,6 +94,7 @@ class BlogApp extends SMElement {
    */
   onLoggedIn(e) {
     this.send('logged_in', {
+      event: e,
       user: {
         name:e.detail.username,
         loggedIn: true

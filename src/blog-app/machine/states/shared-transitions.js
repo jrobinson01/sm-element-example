@@ -1,4 +1,5 @@
-export default [
+/** @type Array<import('sm-element/sm-element').Transition>*/
+const transitions = [
   {
     event: 'go_home',
     target: 'home'
@@ -12,7 +13,7 @@ export default [
     target: 'fourOhFour'
   },
   {
-    event: 'create_post',
+    event: 'go_create',
     target: 'create',
     /** @this {BlogApp} */
     condition() {
@@ -20,14 +21,20 @@ export default [
     }
   },
   {
-    event: 'create_post',
+    event: 'go_create',
     target: 'home',
     /** @this {BlogApp} */
     condition() {
       return this.user.loggedIn !== true;
     },
-    effect() {
-      this.history.push('/');// fix url (TODO: causes a full page load?)
+  },
+  {
+    event: 'view_post',
+    target: 'view',
+    effect(detail) {
+      return {selectedPostId: detail.postId};
     }
-  }
+  },
 ];
+
+export default transitions;

@@ -5,7 +5,7 @@ export default {
   transitions: [
     {
       event: 'try_again',
-      target: 'form'
+      target: 'form',
     }
   ],
   render() {

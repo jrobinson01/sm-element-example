@@ -2,10 +2,10 @@ import {html} from 'sm-element/sm-element';
 
 export default {
   name: 'loading',
-  onEntry() {
+  onEntry({username, password}) {
     // fake network request
     setTimeout(() => {
-      if (this.username === 'admin' && this.password === 'password') {
+      if (username === 'admin' && password === 'password') {
         this.send('authenticated');
       } else {
         this.send('unauthenticated', {username:'', password:''});

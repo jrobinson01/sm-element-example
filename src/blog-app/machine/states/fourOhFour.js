@@ -1,6 +1,8 @@
 import {html} from 'sm-element/sm-element';
+import ALink from '../../../a-link/a-link';
 
-export default {
+/** @type import('sm-element/sm-element').State */
+const state = {
   name: 'fourOhFour',
   transitions: [
     {
@@ -9,6 +11,12 @@ export default {
     },
   ],
   render() {
-    return html`<div>Oops! <a href="/" @click="${e => this.clickLink(e)}">home</a></div>`;
+    return html`
+      <div>
+        <h5>Oops! Page not found.</h5>
+        <a-link href="/">home</a-link>
+      </div>`;
   }
 };
+
+export default state;

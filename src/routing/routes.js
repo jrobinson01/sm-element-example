@@ -51,7 +51,7 @@ export default {
           action() {
             return {
               title:'create post',
-              event: 'create_post'
+              event: 'go_create'
             }
           }
         }

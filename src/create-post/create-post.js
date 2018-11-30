@@ -44,38 +44,9 @@ export default class CreatePost extends SMElement {
 
   onSubmit(e) {
     e.preventDefault();
-    // How to handle this?
-    // we need to dispatch an event which our parent handles,
-    // and then transition to our loading state while our parent
-    // makes a network request to save the post.
-    // on success, tell our parent we're done.
-    // should there be a 'creating_post' state on the parent?
-    // ...
     this.send('creating_post');
-    const event = new CustomEvent('create-post', {
-      detail:{
-        title: this.title,
-        content: this.content
-      }
-    });
-    this.dispatchEvent(event);
-    event.detail.responder
-    .then(newPost => {
-      this.send('create_success', newPost);
-    })
-    .catch(err => {
-      this.send('create_error');
-    })
   }
 
-  onClickPost(e) {
-    e.preventDefault();
-    this.dispatchEvent(new CustomEvent('view-new-post', {
-      detail:{
-        postId: this.postId
-      }
-    }));
-  }
 }
 
 customElements.define('create-post', CreatePost);

@@ -1,4 +1,5 @@
-export default {
+/** @type import('sm-element/sm-element').State */
+const state = {
   name: 'form',
   transitions: [
     {
@@ -7,3 +8,4 @@ export default {
     }
   ]
 };
+export default state;

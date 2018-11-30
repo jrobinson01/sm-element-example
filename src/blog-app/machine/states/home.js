@@ -1,17 +1,12 @@
 import sharedTransitions from './shared-transitions';
 import {html} from 'sm-element/sm-element';
+import ALink from '../../../a-link/a-link';
 
-export  default {
+/** @type import("sm-element/sm-element").State */
+const state = {
   name:'home',
-  // @ts-ignore
   transitions: sharedTransitions.concat([
-    {
-      event: 'view_post',
-      target: 'view',
-      effect(detail) {
-        return {selectedPostId: detail.postId};
-      }
-    },
+    /** @type import("sm-element/sm-element").State */
     {
       event: 'select_login',
       target: 'login',
@@ -22,12 +17,14 @@ export  default {
       <h5>Recent posts</h4>
       <ul>
       ${posts.slice(0,2).map(p => html`<li>
-        <a href="/posts/${p.id}" @click="${e => this.clickLink(e, p.id)}">${p.title}</a>
+        <a-link href="/posts/${p.id}">${p.title}</a-link>
         </li>`)}
       </ul>
-      <a href="/posts" @click="${e => this.clickLink(e)}">all posts</a>
-      ${!user.loggedIn ? html`<a href="/login" @click="${e => this.clickLink(e)}">login</a>` : ''}
-      ${user.loggedIn ? html`<a href="/create" @click="${e => this.clickLink(e)}">New post</a>` : ''}
+      <a-link href="/posts">all posts</a-link>
+      ${!user.loggedIn ? html`<a-link href="/login">login</a-link>` : ''}
+      ${user.loggedIn ? html`<a-link href="/create">New post</a-link>` : ''}
     `
   }
 };
+
+export default state;

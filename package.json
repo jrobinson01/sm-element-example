@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "history": "^4.7.2",
-    "sm-element": "0.0.15",
+    "sm-element": "0.0.16",
     "universal-router": "^7.0.0"
   }
 }

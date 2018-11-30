@@ -20,6 +20,9 @@ export default class LoginForm extends SMElement {
       },
       errorMessage: {
         type: String
+      },
+      usernameError: {
+        type: String
       }
     }
   }
@@ -33,11 +36,12 @@ export default class LoginForm extends SMElement {
       </header>
       <article>
         <form @submit="${e => this.onSubmit(e)}" @change="${e => this.send('try_again')}">
-          <input type="text" .value="${username}" @input="${e => this.username = e.target.value}" .disabled="${!enabled}" placeholder="admin"></input>
+          <input type="text" .value="${username}" @input="${e => {this.username = e.target.value; this.usernameError = ''}}" .disabled="${!enabled}" placeholder="admin"></input>
           <input type="password" .value="${password}" @input="${e => this.password = e.target.value}" .disabled="${!enabled}" placeholder="password"></input>
           <button type="submit" .disabled="${!enabled}">Login</button>
         </form>
         ${this.currentStateRender(this.data)}
+        ${this.usernameError ? html`<div class="validation-error">${this.usernameError}</div>` : ''}
       </article>
     `;
   }

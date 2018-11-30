@@ -5,7 +5,10 @@ import create from './states/create';
 import login from './states/login';
 import fourOhFour from './states/fourOhFour';
 
-export default {
+/** @type import('sm-element/sm-element').Machine */
+const machine = {
   initial:'home',
   states: {home, posts, view, create, login, fourOhFour}
 };
+
+export default machine;

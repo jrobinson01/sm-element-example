@@ -1,27 +1,23 @@
 import sharedTransitions from './shared-transitions';
 import {html} from 'sm-element/sm-element';
+import ALink from '../../../a-link/a-link';
 
-export default  {
+/** @type import("sm-element/sm-element").State */
+const state = {
   name: 'posts',
   // @ts-ignore
-  transitions: sharedTransitions.concat([
-    {
-      event: 'view_post',
-      target: 'view',
-      effect(detail) {
-        console.log('view_post event', detail);
-        return {selectedPostId: detail.postId};
-      }
-    },
-  ]),
+  transitions: sharedTransitions.concat([]),
   render({posts}) {
     return html `
       <h5>All posts</h5>
       <ul>
-      ${posts.map(p => html`<li>
-        <a href="/posts/${p.id}" @click="${e => this.clickLink(e)}">${p.title}</a>
-        </li>`)}
+      ${posts.map(p => html`
+        <li>
+          <a-link href="/posts/${p.id}">${p.title}</a-link>
+        </li>
+        `)}
       </ul>
     `
   }
-}
+};
+export default state;

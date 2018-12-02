@@ -80,6 +80,9 @@ class BlogApp extends SMElement {
       ${style}
       <header>
         <a-link href="/">A Blog!</a-link>
+        <div>
+          an sm-element demo application
+        </div>
       </header>
       <article id="main">
         ${this.currentStateRender(this.data)}

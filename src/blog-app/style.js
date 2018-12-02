@@ -43,6 +43,11 @@ const style = html`
       text-align: center;
       border-bottom: 4px solid var(--color-theme-secondary);
     }
+    header div {
+      margin-top: 5px;
+      color: var(--color-theme-text);
+      font-style: italic;
+    }
     header a-link {
       color: var(--color-theme-text);
       font-weight: 800;

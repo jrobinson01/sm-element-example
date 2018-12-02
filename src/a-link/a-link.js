@@ -13,8 +13,15 @@ export default class ALink extends SMElement {
 
     return html`
       <style>
+        :host {
+          color: var(--color-black)
+          display: block;
+        }
         a {
           text-decoration: none;
+          color: inherit;
+          display: inherit;
+          width: 100%;
         }
       </style>
       <a href="${href}" @click="${e => this.onClick(e)}"><slot></slot></a>

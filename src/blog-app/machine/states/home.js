@@ -14,15 +14,23 @@ const state = {
   ]),
   render({user, posts}) {
     return html`
-      <h5>Recent posts</h4>
-      <ul>
-      ${posts.slice(0,2).map(p => html`<li>
-        <a-link href="/posts/${p.id}">${p.title}</a-link>
-        </li>`)}
-      </ul>
-      <a-link href="/posts">all posts</a-link>
-      ${!user.loggedIn ? html`<a-link href="/login">login</a-link>` : ''}
-      ${user.loggedIn ? html`<a-link href="/create">New post</a-link>` : ''}
+      <div id="blog-app-home">
+        <h5>
+          <div class="container">
+            Recent posts
+          </div>
+        </h5>
+        <div class="container">
+          <ul>
+          ${posts.slice(0,2).map(p => html`<li>
+            <a-link href="/posts/${p.id}">${p.title}</a-link>
+            </li>`)}
+          </ul>
+          <a-link href="/posts" class=button>all posts</a-link>
+          ${!user.loggedIn ? html`<a-link href="/login" class=button>login</a-link>` : ''}
+          ${user.loggedIn ? html`<a-link href="/create" class=button>New post</a-link>` : ''}
+        </div>
+      </div>
     `
   }
 };

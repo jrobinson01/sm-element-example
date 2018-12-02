@@ -50,7 +50,7 @@ const style = html`
       font-size: 52px;
       text-transform: uppercase;
       letter-spacing: -3px;
-      text-shadow: 1px 1px 1px var(--color-theme), 0 0 45px white;
+      text-shadow: 1px 1px 1px var(--color-theme), 0 0 5px white, 0 0 15px white, 0 0 30px white, 0 0 45px white, 0 0 60px white;
     }
     article#menu {
       grid-area: menu;

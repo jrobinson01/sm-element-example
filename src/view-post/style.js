@@ -33,6 +33,7 @@ const style = html`
       color: var(--color-theme-text);
       padding: 10px;
     }
+    
   </style>
 `;
 

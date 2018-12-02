@@ -12,7 +12,7 @@ const state = {
 
   render({user, posts}) {
     return html`
-      <view-post .post="${posts[0]}"></view-post>
+      <view-post .post="${posts[0]}" preview></view-post>
     `
   }
 };

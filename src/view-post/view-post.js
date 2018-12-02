@@ -1,5 +1,6 @@
 import SMElement, {html} from 'sm-element/sm-element';
 import style from './style';
+import ALink from '../a-link/a-link';
 
 export default class ViewPost extends SMElement {
 
@@ -8,6 +9,10 @@ export default class ViewPost extends SMElement {
       post: {
         type: Object,
         value: ()=> {{}}
+      },
+      preview:{
+        type: Boolean,
+        value: false
       }
     }
   }
@@ -24,7 +29,20 @@ export default class ViewPost extends SMElement {
         </span>
       </header>
       <article>
-        ${post.content}
+        ${this.preview
+          ? html`
+            <p>
+              ${post.content[0]}...
+            </p>
+            <a-link href="/posts/${post.id}">continue reading</a-link>
+          `
+          : html `
+            ${post.content.map(p => html`
+                <p>${p}</p>
+            `)}
+          `
+        }
+
       </article>
     `;
   }

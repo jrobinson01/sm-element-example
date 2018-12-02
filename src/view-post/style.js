@@ -13,7 +13,7 @@ const style = html`
       font-style: oblique;
       text-shadow: 1px 1px 1px var(--color-theme-text-dark);
     }
-    header h5{
+    header h5 {
       font-size: 24px;
       text-transform: uppercase;
       margin: 0;
@@ -31,6 +31,7 @@ const style = html`
       font-size: 18px;
       margin-top: 8px;
       color: var(--color-theme-text);
+      padding: 10px;
     }
   </style>
 `;

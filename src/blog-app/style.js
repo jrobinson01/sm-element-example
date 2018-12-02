@@ -5,12 +5,28 @@ const style = html`
     :host {
       display: grid;
       grid-template-areas:
-      'header header header header header header'
-      'main main main main main menu'
-      'footer footer footer footer footer footer';
+      'header header'
+      'main  menu'
+      'footer footer';
       grid-gap: 10px;
       min-height: 100%;
       grid-template-rows: auto 1fr auto;
+      grid-template-columns: auto 250px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      :host {
+        display: grid;
+        grid-template-areas:
+        'header'
+        'main'
+        'menu'
+        'footer';
+        grid-gap: 0px;
+        min-height: 100%;
+        grid-template-rows: auto 1fr auto;
+        grid-template-columns: auto;
+      }
     }
 
     @keyframes fade-out-page {

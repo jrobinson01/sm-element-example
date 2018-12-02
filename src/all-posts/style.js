@@ -35,6 +35,9 @@ const style = html`
       font-size: 12px;
       color: var(--color-theme-secondary-text-light);
     }
+    article {
+      padding: 10px;
+    }
   </style>
 `;
 

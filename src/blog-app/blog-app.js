@@ -3,6 +3,8 @@ import machine from './machine/machine';
 import routes from '../routing/routes';
 import style from './style';
 import ALink from '../a-link/a-link';
+import posts from '../data';
+import RecentPosts from '../recent-posts/recent-posts';
 
 class BlogApp extends SMElement {
 
@@ -21,11 +23,10 @@ class BlogApp extends SMElement {
       },
       posts: {
         type: Array,
-        value: () => [
-          {id:'1', title:'The first post', content:'blah blah blah'},
-          {id:'2', title:'The second post', content:'blah blah blah blah blah'},
-          {id:'3', title:'The third post', content:'blah blah blah blah blah'},
-        ]
+        value: () => posts
+      },
+      animatedRouteData: {
+        type: Object
       }
     }
   }
@@ -42,12 +43,7 @@ class BlogApp extends SMElement {
     this.router = new UniversalRouter(routes);
     // handle changes to the url directly
     this.router.resolve({pathname: location.pathname})
-    .then(route => {
-      if (route.title !== document.title) {
-        document.title = route.title;
-        this.send(route.event, route.detail);
-      }
-    }).catch((e) => {
+    .then(this.handleRoute.bind(this)).catch((e) => {
       console.error('error resolving (direct url)', location.pathname);
       this.send('page_not_found');
     });
@@ -56,12 +52,7 @@ class BlogApp extends SMElement {
     // listen for history changes
     this.history.listen(event => {
       this.router.resolve({pathname: event.pathname})
-      .then(route => {
-        if (route.title !== document.title) {
-          document.title = route.title;
-          this.send(route.event, route.detail);
-        }
-      }).catch((e) => {
+      .then(this.handleRoute.bind(this)).catch((e) => {
         console.error('error resolving (client-side)', location.pathname);
         this.send('page_not_found');
       });
@@ -73,6 +64,13 @@ class BlogApp extends SMElement {
     });
   }
 
+  handleRoute(route) {
+    document.title = route.title;
+    this.send('transition_page', {
+      animatedRouteData: route
+    });
+  }
+
   disconnectedCallback() {
     super.disconnectedCallback();
   }
@@ -81,11 +79,19 @@ class BlogApp extends SMElement {
     return html`
       ${style}
       <header>
-        <div class="container">
-          <a-link href="/">A Blog!</a-link>
-        </div>
+        <a-link href="/">A Blog!</a-link>
       </header>
-      ${this.currentStateRender(this.data)}
+      <article id="main">
+        ${this.currentStateRender(this.data)}
+      </article>
+      <article id="menu">
+        <recent-posts .posts="${posts}"></recent-posts>
+      </article>
+      <footer>
+        <a-link button href="/posts">archive</a-link>
+        ${!user.loggedIn ? html`<a-link button href="/login">login</a-link>` : ''}
+        ${user.loggedIn ? html`<a-link button href="/create">New post</a-link>` : ''}
+      </footer>
     `;
   }
 
@@ -113,6 +119,5 @@ class BlogApp extends SMElement {
   }
 
 }
-
 
 customElements.define('blog-app', BlogApp);

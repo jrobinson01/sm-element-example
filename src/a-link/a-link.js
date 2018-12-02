@@ -14,8 +14,21 @@ export default class ALink extends SMElement {
     return html`
       <style>
         :host {
-          color: var(--color-black)
+          color: var(--color-theme-text-dark);
           display: block;
+        }
+        :host([button]) {
+          color: var(--color-theme-secondary-text-light);
+          transform: skew(-10deg);
+          padding: 8px 16px;
+          margin: 16px 16px 16px 0;
+          background: var(--color-theme-light);
+          border: 1px solid var(--color-theme);
+          display: inline-block;
+          font-weight: 600;
+          font-size: 18px;
+          text-transform: uppercase;
+          letter-spacing: -1px;
         }
         a {
           text-decoration: none;

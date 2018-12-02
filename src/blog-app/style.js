@@ -2,11 +2,46 @@ import {html} from 'sm-element/sm-element';
 
 const style = html`
   <style>
+    :host {
+      display: grid;
+      grid-template-areas:
+      'header header header header header header'
+      'main main main main main menu'
+      'footer footer footer footer footer footer';
+      grid-gap: 10px;
+      min-height: 100%;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    @keyframes fade-out-page {
+      0% {
+        /* opacity: 1.0; */
+        transform:  translate(0px,0px);
+      }
+      100% {
+        /* opacity: 0; */
+        transform:  translate(-1200px,0px);
+      }
+    }
+
+    @keyframes fade-in-page {
+      0% {
+        /* opacity: 0; */
+        transform:  translate(-1200px,0px);
+      }
+      100% {
+        /* opacity: 1.0; */
+        transform:  translate(0px,0px);
+      }
+    }
+
     header {
-    background-color: #ffffff;
-background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg fill='%232cc36a' fill-opacity='0.18'%3E%3Cpolygon fill-rule='evenodd' points='8 4 12 6 8 8 6 12 4 8 0 6 4 4 6 0 8 4'/%3E%3C/g%3E%3C/svg%3E");
+      grid-area: header;
+      background-color: var(--color-theme-secondary-light);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg fill='%2317AA57' fill-opacity='0.18'%3E%3Cpolygon fill-rule='evenodd' points='8 4 12 6 8 8 6 12 4 8 0 6 4 4 6 0 8 4'/%3E%3C/g%3E%3C/svg%3E");
       padding: 32px;
       text-align: center;
+      border-bottom: 4px solid var(--color-theme-secondary);
     }
     header a-link {
       color: var(--color-theme-text);
@@ -14,52 +49,26 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
       font-style: italic;
       font-size: 52px;
       text-transform: uppercase;
-      letter-spacing: -4px;
+      letter-spacing: -3px;
+      text-shadow: 1px 1px 1px var(--color-theme), 0 0 45px white;
     }
-    .container {
-      margin: 0 auto;
-      max-width: 800px;
+    article#menu {
+      grid-area: menu;
     }
-    h5 {
-      font-style: oblique;
-      background: var(--color-theme);
-      border-bottom: 2px solid var(--color-theme-text);
-      font-size: 24px;
-      padding: 8px;
-      text-transform: uppercase;
-      letter-spacing: -2px;
-      margin: 0;
+    article#main {
+      grid-area: main;
     }
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
+    article#main[fade-out] {
+      animation: fade-out-page 0.5s ease-in;
     }
-    li {
-      font-size: 18px;
-      padding: 16px 0;
-      border-bottom: 1px solid #eeeeee;
+    article#main[fade-in] {
+      animation: fade-in-page 0.5s ease-in;
     }
-    #blog-app-home a-link.button {
-      transform: skew(-10deg);
-      padding: 8px 16px;
-      margin: 16px 16px 16px 0;
-      background: var(--color-theme-light);
-      border: 1px solid var(--color-theme);
-      display: inline-block;
-      font-weight: 600;
-      font-size: 18px;
-      text-transform: uppercase;
-      letter-spacing: -2px;
-    }
-    #blog-app-home li a-link {
-      width: 100%;
-      margin: 0;
-      color: var(--color-black);
-    }
-    article {
-      font-size: 18px; 
-      margin-top: 8px;
+    footer {
+      grid-area: footer;
+      background-color: var(--color-theme);
+      text-align: center;
+      border-bottom: 4px solid var(--color-theme-secondary-light);
     }
   </style>
 `;

@@ -9,8 +9,16 @@ const state = {
     const selectedPost = posts.find(p => p.id === selectedPostId);
     if (selectedPost){
       return html`
-        <header><h3>${selectedPost.title}</h3></header>
-        <article>${selectedPost.content}</article>
+        <h5>
+          <div class="container">
+            ${selectedPost.title}
+          </div>
+        </h5>
+        <article>
+          <div class="container">
+            ${selectedPost.content}
+          </div>
+        </article>
       `
     }
     return html`post not found!`;

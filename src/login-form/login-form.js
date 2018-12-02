@@ -31,18 +31,22 @@ export default class LoginForm extends SMElement {
     const enabled = this.oneOfState(this.currentState, this.states.form, this.states.error);
     return html`
       ${style}
-      <header>
-        <h5>Login with your username and password</h5>
-      </header>
-      <article>
-        <form @submit="${e => this.onSubmit(e)}" @change="${e => this.send('try_again')}">
-          <input type="text" .value="${username}" @input="${e => {this.username = e.target.value; this.usernameError = ''}}" .disabled="${!enabled}" placeholder="admin"></input>
-          <input type="password" .value="${password}" @input="${e => this.password = e.target.value}" .disabled="${!enabled}" placeholder="password"></input>
-          <button type="submit" .disabled="${!enabled}">Login</button>
-        </form>
-        ${this.currentStateRender(this.data)}
-        ${this.usernameError ? html`<div class="validation-error">${this.usernameError}</div>` : ''}
-      </article>
+      <h5>
+        <div class="container">
+          Login
+        </div>
+      </h5>
+      <div class="container">
+        <article>
+          <form @submit="${e => this.onSubmit(e)}" @change="${e => this.send('try_again')}">
+            <input type="text" .value="${username}" @input="${e => {this.username = e.target.value; this.usernameError = ''}}" .disabled="${!enabled}" placeholder="admin"></input>
+            <input type="password" .value="${password}" @input="${e => this.password = e.target.value}" .disabled="${!enabled}" placeholder="password"></input>
+            <button type="submit" .disabled="${!enabled}">Login</button>
+          </form>
+          ${this.currentStateRender(this.data)}
+          ${this.usernameError ? html`<div class="validation-error">${this.usernameError}</div>` : ''}
+        </article>
+      </div>
     `;
   }
 

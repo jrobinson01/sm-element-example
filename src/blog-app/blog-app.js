@@ -80,9 +80,11 @@ class BlogApp extends SMElement {
   render({user, posts}) {
     return html`
       ${style}
-      <h1>
-        <a-link href="/">A Blog!</a-link>
-      </h1>
+      <header>
+        <div class="container">
+          <a-link href="/">A Blog!</a-link>
+        </div>
+      </header>
       ${this.currentStateRender(this.data)}
     `;
   }

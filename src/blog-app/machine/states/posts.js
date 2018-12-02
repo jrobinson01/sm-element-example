@@ -9,14 +9,20 @@ const state = {
   transitions: sharedTransitions.concat([]),
   render({posts}) {
     return html `
-      <h5>All posts</h5>
-      <ul>
-      ${posts.map(p => html`
-        <li>
-          <a-link href="/posts/${p.id}">${p.title}</a-link>
-        </li>
-        `)}
-      </ul>
+      <h5>
+        <div class="container">
+          All posts
+        </div>
+      </h5>
+      <div class="container">
+        <ul>
+        ${posts.map(p => html`
+          <li>
+            <a-link href="/posts/${p.id}">${p.title}</a-link>
+          </li>
+          `)}
+        </ul>
+      </div>
     `
   }
 };

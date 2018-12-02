@@ -31,22 +31,22 @@ const style = html`
 
     @keyframes fade-out-page {
       0% {
-        /* opacity: 1.0; */
+        opacity: 1.0;
         transform:  translate(0px,0px);
       }
       100% {
-        /* opacity: 0; */
-        transform:  translate(-1200px,0px);
+        opacity: 0;
+        transform:  translate(600px,0px);
       }
     }
 
     @keyframes fade-in-page {
       0% {
-        /* opacity: 0; */
-        transform:  translate(-1200px,0px);
+        opacity: 0;
+        transform:  translate(-600px,0px);
       }
       100% {
-        /* opacity: 1.0; */
+        opacity: 1.0;
         transform:  translate(0px,0px);
       }
     }
@@ -75,6 +75,8 @@ const style = html`
     }
     article#menu {
       grid-area: menu;
+      background-color: white;
+      z-index: 1;
     }
     article#main {
       grid-area: main;
@@ -91,6 +93,7 @@ const style = html`
       text-align: center;
       border-bottom: 4px solid var(--color-theme-secondary-light);
     }
+
   </style>
 `;
 

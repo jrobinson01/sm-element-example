@@ -82,10 +82,10 @@ const style = html`
       grid-area: main;
     }
     article#main[fade-out] {
-      animation: fade-out-page 0.5s ease-in;
+      animation: fade-out-page 0.33s ease-in;
     }
     article#main[fade-in] {
-      animation: fade-in-page 0.5s ease-in;
+      animation: fade-in-page 0.33s ease-in;
     }
     footer {
       grid-area: footer;

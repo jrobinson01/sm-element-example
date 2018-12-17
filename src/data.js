@@ -7,9 +7,11 @@ const posts = [
     title: 'A title!',
     content: [
       `Lorem ipsum dolor sit amet, mel ne nominavi pertinacia dissentias, usu ea epicurei persecuti. Id vero facilisi scriptorem mel. Te viris doctus sed, eam consul intellegat ei, sint option per eu. Cu per unum quando, his ei vidit soluta. Est cu virtute posidonium, mel tation quodsi tractatos id, modus legendos dissentiunt sea et.`,
+      {type: 'image', src:'https://picsum.photos/480/240', caption:'something about this photo.', width:480, height:240},
       `Malorum corpora ea vis, his vidit sonet quidam eu, ad nam nibh mnesarchum vituperatoribus. Vel affert facilisi pertinacia id, id eos facer ridens. Ad eius conceptam instructior qui, quas sanctus aliquando est no. Quem erat eruditi vis at. Mei omnes graeci tamquam te. Vix at nostrud fastidii, nam docendi appareat phaedrum ad, his et libris explicari.`,
       `Cu clita feugiat vis. Mucius complectitur definitionem an usu. Duo cu albucius lobortis, deserunt convenire omittantur vix ne. Meliore ocurreret vim an, et tota regione duo.`,
       `Vim semper tritani mnesarchum ne. Nam stet elitr dicant te. Mel ut iudico vivendo forensibus, alia decore vel id, an erat volumus fastidii quo. Quo audiam inermis euripidis te, te nec natum errem nonumy, id audire persius argumentum qui.`,
+      {type: 'image', src:'/test.png'},
       `Alia convenire quaerendum ei eum, virtute oportere ne sea, cibo affert oportere ex his. Mutat simul fierent ius id, vel voluptua phaedrum voluptatibus ei. Et usu natum qualisque, cu vix harum utinam ridens. Natum fugit perpetua et qui. Ne viris solet vim, audire discere facilis ea vim. Erant molestie quo cu, eam no autem accusam. Ut quo nisl abhorreant.`,
       `Mei id agam tritani consulatu. Ferri vivendum an has. Eos at dolore veritus scripserit, no vis diam dolorum, nec omnes verterem incorrupte te. Eu aperiam accusamus duo. Dolore nemore iriure usu ut, has labore probatus ei. Brute molestiae comprehensam ea usu, ea eum dolorem accusata.`,
       `Summo liber primis ius ne, ut exerci nonumy nec, ea omnium tamquam tibique vel. Ferri partem et sit, id est qualisque referrentur contentiones. Fabulas consectetuer eos ad, tota alterum eu pro. Nihil eleifend complectitur cum an. Ex nam lobortis laboramus dissentiet, his cu suas habemus erroribus. Eum omnis nonumy id, quot ridens commune vel ut.`,

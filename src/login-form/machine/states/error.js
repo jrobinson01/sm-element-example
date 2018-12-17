@@ -9,6 +9,6 @@ export default {
     }
   ],
   render() {
-    return html`<div>Sorry, username or password is incorrect.</div>`;
+    return html`<div id="error">Sorry, username or password is incorrect.</div>`;
   }
 };

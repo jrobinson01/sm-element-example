@@ -62,6 +62,7 @@ class BlogApp extends SMElement {
       const event = /** @type {CustomEvent} */ (e);
       this.history.push(event.detail.href);
     });
+
   }
 
   handleRoute(route) {

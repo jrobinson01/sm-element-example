@@ -33,7 +33,10 @@ const style = html`
       color: var(--color-theme-text);
       padding: 10px;
     }
-    
+    footer a-link {
+      padding-left: 10px;
+      color: var(--color-theme-secondary-text);
+    }
   </style>
 `;
 

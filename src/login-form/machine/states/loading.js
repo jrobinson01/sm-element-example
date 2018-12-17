@@ -1,5 +1,5 @@
 import {html} from 'sm-element/sm-element';
-
+import ProgressWheel from '../../../progress-wheel/progress-wheel';
 export default {
   name: 'loading',
   onEntry({username, password}) {
@@ -29,6 +29,6 @@ export default {
     }
   ],
   render() {
-    return html`<div>loading...</div>`;
+    return html`<progress-wheel></progress-wheel>`;
   }
 };

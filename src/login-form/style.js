@@ -6,7 +6,7 @@ const style = html`
       display: block;
     }
     .validation-error {
-      color: orange;
+      color: var(--color-theme-warning);
       font-size: 11px;
     }
     .container {
@@ -43,6 +43,9 @@ const style = html`
       font-size: 16px;
       margin: 8px 0;
       padding: 8px
+    }
+    #error {
+      color: var(--color-theme-warning);
     }
   </style>
 `;

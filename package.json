@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prepare": "pika-web",
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rimraf ./build/*",
-    "copy:src":"cp index.html build/index.html && cp -r src build/src",
-    "copy:modules":"cp -r web_modules build/web_modules",
+    "copy:src": "cp index.html build/index.html && cp -r src build/src",
+    "copy:modules": "npm run prepare && cp -r web_modules build/web_modules",
     "build": "npm run clean && npm run copy:src && npm run copy:modules",
     "deploy": "npm run build && firebase deploy",
-    "dev": "ws --spa index.html --http2"
+    "dev": "ws --spa --http2"
   },
   "author": "",
   "license": "ISC",

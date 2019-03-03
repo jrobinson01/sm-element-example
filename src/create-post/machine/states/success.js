@@ -1,5 +1,5 @@
-import {html} from 'sm-element/sm-element';
-import Alink from '../../../a-link/a-link';
+import {html} from '/web_modules/sm-element.js';
+import Alink from '../../../a-link/a-link.js';
 
 export default {
   name: 'success',

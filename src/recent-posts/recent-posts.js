@@ -1,5 +1,5 @@
-import SMElement, {html} from 'sm-element/sm-element';
-import style from './style';
+import SMElement, {html} from '/web_modules/sm-element.js';
+import style from './style.js';
 
 export default class RecentPosts extends SMElement {
   static get properties() {

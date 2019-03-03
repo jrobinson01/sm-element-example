@@ -1,7 +1,7 @@
-import sharedTransitions from './shared-transitions';
-import {html} from 'sm-element/sm-element';
-import ALink from '../../../a-link/a-link';
-import ViewPost from '../../../view-post/view-post';
+import sharedTransitions from './shared-transitions.js';
+import {html} from '/web_modules/sm-element.js';
+import ALink from '../../../a-link/a-link.js';
+import ViewPost from '../../../view-post/view-post.js';
 
 /** @type import("sm-element/sm-element").State */
 const state = {

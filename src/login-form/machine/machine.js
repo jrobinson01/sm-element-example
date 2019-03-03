@@ -1,7 +1,7 @@
-import form from './states/form';
-import loading from './states/loading';
-import error from './states/error';
-import success from './states/success';
+import form from './states/form.js';
+import loading from './states/loading.js';
+import error from './states/error.js';
+import success from './states/success.js';
 
 export default {
   initial: 'form',

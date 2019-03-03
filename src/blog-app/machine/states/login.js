@@ -1,6 +1,6 @@
 // @ts-nocheck
-import sharedTransitions from './shared-transitions';
-import {html} from 'sm-element/sm-element';
+import sharedTransitions from './shared-transitions.js';
+import {html} from '/web_modules/sm-element.js';
 import LoginForm from '../../../login-form/login-form.js';
 
 /** @type import("sm-element/sm-element").State */

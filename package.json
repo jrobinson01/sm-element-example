@@ -5,14 +5,21 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "polymer build && cp ./build/es5-bundled/index.html ./public/index.html && firebase deploy",
-    "dev": "polymer serve -H 0.0.0.0"
+    "clean": "rimraf ./build/*",
+    "copy:src":"cp index.html build/index.html && cp -r src build/src",
+    "copy:modules":"cp -r web_modules build/web_modules",
+    "build": "npm run clean && npm run copy:src && npm run copy:modules",
+    "deploy": "npm run build && firebase deploy",
+    "dev": "ws --spa index.html --http2"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "history": "^4.7.2",
     "sm-element": "1.0.0",
     "universal-router": "^7.0.0"
+  },
+  "devDependencies": {
+    "@pika/web": "^0.2.0",
+    "local-web-server": "^2.6.1"
   }
 }

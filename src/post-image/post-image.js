@@ -1,5 +1,5 @@
-import SMElement, {html} from 'sm-element/sm-element';
-import ProgressWheel from '../progress-wheel/progress-wheel';
+import SMElement, {html} from '/web_modules/sm-element.js';
+import ProgressWheel from '../progress-wheel/progress-wheel.js';
 
 export default class PostImage extends SMElement {
 

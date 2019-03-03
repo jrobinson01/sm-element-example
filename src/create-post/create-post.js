@@ -1,5 +1,5 @@
-import SMElement, {html} from 'sm-element/sm-element';
-import machine from './machine/machine';
+import SMElement, {html} from '/web_modules/sm-element.js';
+import machine from './machine/machine.js';
 import style from './style.js';
 
 export default class CreatePost extends SMElement {

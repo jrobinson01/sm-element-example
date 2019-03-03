@@ -4,7 +4,7 @@ const posts = [
     id:'3',
     author: 'admin',
     date: new Date(now.setDate(now.getDate() - 1)),
-    title: 'A title!',
+    title: 'A Post!',
     content: [
       `Lorem ipsum dolor sit amet, mel ne nominavi pertinacia dissentias, usu ea epicurei persecuti. Id vero facilisi scriptorem mel. Te viris doctus sed, eam consul intellegat ei, sint option per eu. Cu per unum quando, his ei vidit soluta. Est cu virtute posidonium, mel tation quodsi tractatos id, modus legendos dissentiunt sea et.`,
       {type: 'image', src:'https://picsum.photos/480/240', caption:'something about this photo.', width:480, height:240},
@@ -23,7 +23,7 @@ const posts = [
     id:'2',
     author: 'admin',
     date: new Date(now.setDate(now.getDate() - 11)),
-    title: 'Another title!',
+    title: 'Another Post!',
     content: [
       `Lorem ipsum dolor sit amet, per laudem vulputate an. Has no justo necessitatibus, eu eirmod corrumpit mea. Mei an facer assentior. Sea melius docendi id, sea malis graece intellegat ex, vel nonumy accusam referrentur no. Labitur oporteat usu in, ut tamquam nostrum nam.`,
       `No pro fierent adolescens. Ut vis nulla choro iracundia. Cu nonumy postea voluptatibus cum, ea velit sententiae nec. Qui ut graeci regione, audiam vivendo ex eos. Illud reprimique vis an, vivendo volumus urbanitas usu id, mel cu sonet utroque mentitum. Ea mei iriure dignissim consetetur. Facilis fierent euripidis vim et, lorem posidonium vel cu.`,

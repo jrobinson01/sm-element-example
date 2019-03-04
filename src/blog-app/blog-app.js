@@ -1,10 +1,11 @@
-import SMElement, {html} from 'sm-element/sm-element';
-import machine from './machine/machine';
-import routes from '../routing/routes';
-import style from './style';
-import ALink from '../a-link/a-link';
-import posts from '../data';
-import RecentPosts from '../recent-posts/recent-posts';
+import SMElement, {html} from '/web_modules/sm-element.js';
+import UniversalRouter from '/web_modules/universal-router.js';
+import machine from './machine/machine.js';
+import routes from '../routing/routes.js';
+import style from './style.js';
+import ALink from '../a-link/a-link.js';
+import posts from '../data.js';
+import RecentPosts from '../recent-posts/recent-posts.js';
 
 class BlogApp extends SMElement {
 
@@ -34,7 +35,6 @@ class BlogApp extends SMElement {
   constructor() {
     super();
     this.router;
-    this.history;
   }
 
   connectedCallback() {
@@ -42,25 +42,46 @@ class BlogApp extends SMElement {
     // @ts-ignore global
     this.router = new UniversalRouter(routes);
     // handle changes to the url directly
-    this.router.resolve({pathname: location.pathname})
-    .then(this.handleRoute.bind(this)).catch((e) => {
+    this.router.resolve({pathname: window.location.pathname})
+    .then(this.handleRoute.bind(this))
+    .catch((e) => {
       console.error('error resolving (direct url)', location.pathname);
       this.send('page_not_found');
     });
-    // @ts-ignore global
-    this.history = History.createBrowserHistory();
-    // listen for history changes
-    this.history.listen(event => {
-      this.router.resolve({pathname: event.pathname})
-      .then(this.handleRoute.bind(this)).catch((e) => {
-        console.error('error resolving (client-side)', location.pathname);
+
+    // handle pop-state events
+    window.onpopstate = () => {
+      console.log('onPopState');
+      this.router.resolve({pathname: window.location.pathname})
+      .then(this.handleRoute.bind(this))
+      .catch((e) => {
+        console.error('error resolving (client-side)', window.location.pathname);
         this.send('page_not_found');
       });
-    });
+    };
+    window.onpopstate();
+    history.pushState(null, null, window.location.pathname);
+
     // listen for link clicks
-    this.addEventListener('click-link', e => {
+    window.addEventListener('click', e => {
       const event = /** @type {CustomEvent} */ (e);
-      this.history.push(event.detail.href);
+      const target = event.path.find(el => el.tagName === 'A');
+      // event.preventDefault();
+      if (target) {
+        // prevent default if not external or new-tab click
+        const newTab = event.metaKey || event.ctrlKey;
+        const isExternal = target.pathname.startsWith('http');
+        if (!newTab && !isExternal) {
+          event.preventDefault();
+        }
+        window.history.pushState(null, target.textContent, target.href);// TODO: should move to handleRoute?
+        this.router.resolve({pathname: window.location.pathname})
+        .then(this.handleRoute.bind(this))
+        .catch((e) => {
+          console.error('error resolving (client-side)', window.location.pathname);
+          this.send('page_not_found');
+        });
+      }
     });
 
   }

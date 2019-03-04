@@ -1,4 +1,4 @@
-import {html} from 'sm-element/sm-element';
+import {html} from '/web_modules/sm-element.js';
 
 export default {
   name: 'error',

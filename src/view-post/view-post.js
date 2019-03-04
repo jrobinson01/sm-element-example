@@ -1,7 +1,7 @@
-import SMElement, {html} from 'sm-element/sm-element';
-import style from './style';
-import ALink from '../a-link/a-link';
-import PostImage from '../post-image/post-image';
+import SMElement, {html} from '/web_modules/sm-element.js';
+import style from './style.js';
+import ALink from '../a-link/a-link.js';
+import PostImage from '../post-image/post-image.js';
 
 export default class ViewPost extends SMElement {
 

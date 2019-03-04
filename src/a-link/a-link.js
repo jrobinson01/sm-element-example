@@ -1,4 +1,4 @@
-import SMElement, {html} from 'sm-element/sm-element';
+import SMElement, {html} from '/web_modules/sm-element.js';
 
 export default class ALink extends SMElement {
   static get properties() {
@@ -37,23 +37,23 @@ export default class ALink extends SMElement {
           width: 100%;
         }
       </style>
-      <a href="${href}" @click="${e => this.onClick(e)}"><slot></slot></a>
+      <a href="${href}"><slot></slot></a>
     `;
   }
 
   onClick(e) {
-    const newTab = e.metaKey || e.ctrlKey;
-    const isExternal = this.href.startsWith('http');
-    if (!newTab && !isExternal) {
-      e.preventDefault();
-      this.dispatchEvent(new CustomEvent('click-link', {
-        bubbles: true,
-        composed: true,
-        detail:{
-          href: this.href
-        }
-      }));
-    }
+    // const newTab = e.metaKey || e.ctrlKey;
+    // const isExternal = this.href.startsWith('http');
+    // if (!newTab && !isExternal) {
+    //   e.preventDefault();
+    //   this.dispatchEvent(new CustomEvent('click-link', {
+    //     bubbles: true,
+    //     composed: true,
+    //     detail:{
+    //       href: this.href
+    //     }
+    //   }));
+    // }
   }
 }
 

@@ -1,5 +1,5 @@
-import {html} from 'sm-element/sm-element';
-import ALink from '../../../a-link/a-link';
+import {html} from '/web_modules/sm-element.js';
+import ALink from '../../../a-link/a-link.js';
 
 /** @type import('sm-element/sm-element').State */
 const state = {
